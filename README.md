@@ -8,8 +8,10 @@ Self-host [FreshRSS](https://freshrss.org/), a RSS reader with a web interface, 
 `git clone https://github.com/ggeorgovassilis/selfhosted-reader`
 
 2. Create an .env file with this content:
+```
 DOMAIN=your.domain
 PORT=443
+```
 
 3. (Set up the domain DNS to point to your server)
 
