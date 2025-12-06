@@ -1,0 +1,31 @@
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    volumes:
+      - freshrss_data:/var/www/FreshRSS/data
+    expose:
+      - 80
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - freshrss
+    env_file:
+      - .env
+
+volumes:
+  freshrss_data:
+  caddy_data:
+  caddy_config:
