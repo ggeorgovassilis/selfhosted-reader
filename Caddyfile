@@ -3,6 +3,6 @@
 }
 
 # Fallback for IP access (uncomment if needed):
-# :443 {
-#   reverse_proxy freshrss:80
-# }
+localhost:443, 127.0.0.1:443, [::1]:443 {
+  reverse_proxy freshrss:80
+}
