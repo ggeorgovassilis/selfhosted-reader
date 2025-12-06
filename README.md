@@ -1,19 +1,28 @@
-# FreshRSS + Caddy HTTPS Gateway
+# Self-hosted RSS reader
 
-## Usage
+NOT READY FOR USE YET!!!
 
-1. **Edit the Caddyfile**
-   - For a domain: Replace `your.domain.com` with your domain name.
-   - For IP access: Uncomment the `:443` block in the Caddyfile.
+## What is this?
 
-2. **Start the stack**
-   ```bash
-   docker compose up -d
-   ```
+A self-hosted RSS reader with a web interface, serving over HTTPS
 
-3. **Access FreshRSS**
+
+## Installation
+
+1. Check out this repository
+`git clone https://github.com/ggeorgovassilis/selfhosted-reader`
+
+2. Create an .env file with this content:
+DOMAIN=your.domain
+
+3. (Set up the domain DNS to point to your server)
+
+4. `docker compose up -d`
+   
+5. **Access FreshRSS**
    - Via `https://your.domain.com` (with valid certificate from Let's Encrypt)
    - Or `https://<your-ip>` (with self-signed certificate; browser will warn)
+Follow the wizard instruction to set up a user name and password.
 
 ## Certificate Management
 - **Domain**: Caddy will automatically request and renew certificates from Let's Encrypt.
@@ -21,7 +30,4 @@
 - No manual certificate setup required.
 
 ## Environment Variables
-- You can set FreshRSS environment variables in `docker-compose.yml` as needed.
-
----
-For advanced Caddy configuration, see: https://caddyserver.com/docs/caddyfile
+Edit variables in .env
